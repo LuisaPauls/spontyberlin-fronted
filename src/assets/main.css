@@ -1,8 +1,7 @@
 @import './base.css';
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
+  width: 100%;
   padding: 2rem;
   font-weight: normal;
 }
@@ -21,15 +20,25 @@ a,
   }
 }
 
-@media (min-width: 1024px) {
   body {
-    display: flex;
-    place-items: center;
+    background-color: #ffffff;
+    color: #1b4332;
   }
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+  header {
+    text-align: right;
   }
+
+header img{
+  width: 180px;
+  height: auto;
+}
+
+.meetup-card {
+  background-color: white;
+  color: #1b4332;
+  border: 3px solid #a3f000;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 12px;
 }

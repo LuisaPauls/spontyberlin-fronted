@@ -1,11 +1,16 @@
 <template>
-<h2>Spontane Treffen in Berlin!</h2>
+<section class="meetup-list">
+<h1>Spontane Treffen in Berlin!</h1>
+<br>
 
-<ul>
-  <li v-for="meetup in meetups" :key="meetup.title">
-    {{ meetup.title }} - {{ meetup.location }}
-    </li>
-</ul>
+<article v-for="meetup in meetups" :key="meetup.title" class="meetup-card">
+
+   <h3> {{ meetup.title }} ({{ meetup.category }})</h3>
+   <p> Treffpunkt: {{ meetup.location }} , am {{ meetup.date }} um {{ meetup.time }} Uhr</p>
+   <p> Maximale Teilnehmer: {{ meetup.maxParticipants }}</p>
+
+</article>
+</section>
 </template>
 
 <script setup lang="ts">
@@ -14,7 +19,7 @@ const meetups = [
   title: "Kaffee trinken",
   location: "Berlin-Mitte",
   category: "Freizeit",
-  date: "2026-11-10",
+  date: "10/11/2026",
   time: "15:00",
   maxParticipants: 5
 },
@@ -22,7 +27,7 @@ const meetups = [
   title: "Spazieren gehen",
   location: "Trepotwer Park",
   category: "Outdoor",
-  date: "2026-11-11",
+  date: "11/11/2026",
   time: "14:00",
   maxParticipants: 8
 },
@@ -30,7 +35,7 @@ const meetups = [
   title: "Gemeinsam lernen",
   location: "Treskowalle HTW Berlin",
   category: "Lernen",
-  date: "2026-11-12",
+  date: "12/11/2026",
   time: "12:00",
   maxParticipants: 4
 },
