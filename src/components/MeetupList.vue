@@ -14,32 +14,29 @@
 </template>
 
 <script setup lang="ts">
-const meetups = [
-{
-  title: "Kaffee trinken",
-  location: "Berlin-Mitte",
-  category: "Freizeit",
-  date: "10/11/2026",
-  time: "15:00",
-  maxParticipants: 5
-},
-{
-  title: "Spazieren gehen",
-  location: "Trepotwer Park",
-  category: "Outdoor",
-  date: "11/11/2026",
-  time: "14:00",
-  maxParticipants: 8
-},
-{
-  title: "Gemeinsam lernen",
-  location: "Treskowalle HTW Berlin",
-  category: "Lernen",
-  date: "12/11/2026",
-  time: "12:00",
-  maxParticipants: 4
-},
-]
+import { onMounted, ref } from 'vue'
+
+onMounted(async () => {
+
+const response = await fetch('https://spontyberlin-backend.onrender.com/meetup')
+const data = await response.json()
+meetups.value = [data]
+
+})
+
+const meetups = ref<Meetup[]>([])
+
+interface Meetup {
+title: string,
+location: string
+category: string
+date: string
+time: string
+maxParticipants: number
+}
+
+
+
 </script>
 
 <style scoped>
